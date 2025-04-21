@@ -1,0 +1,86 @@
+/backup
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+# C extensions
+*copy.py
+# C extensions
+*.so
+
+# Virtual environments
+env/
+venv/
+ENV/
+env.bak/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# VSCode settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# Test coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+.cache
+nosetests.xml
+pytest_cache/
+.pytest_cache/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Streamlit cache and log files
+.streamlit/
+
+# Local environment config
+.env
+.env.*
+
+# Log and data files
+*.log
+*.csv
+*.sqlite3
+*.db
+
+# macOS files
+.DS_Store
+
+# Output files
+*.out
+*.tmp
+
+# System-specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# LLM artifacts (optional)
+output/
+inference_results/
+generated_agents/
+/trash
+/chroma_db_data

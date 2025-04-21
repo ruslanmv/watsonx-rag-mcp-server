@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Watsonx RAG Chat{% endblock %}
+
+{% block content %}
+<div class="bg-white bg-opacity-80 backdrop-filter backdrop-blur-sm rounded-lg shadow-xl w-full max-w-2xl h-full max-h-[85vh] flex flex-col">
+
+  <div class="p-4 border-b border-gray-300 flex justify-between items-center">
+    <h1 class="text-xl font-semibold text-gray-800">Chat with PDF Manuals</h1>
+    <a href="{{ url_for('clear_chat') }}" class="text-sm text-blue-600 hover:text-blue-800">Clear Chat</a>
+  </div>
+
+  <div id="chatbox" class="flex-grow p-4 space-y-4 overflow-y-auto">
+    {% if not history %}
+      <div class="text-center text-gray-500">Ask a question about the PDF documents!</div>
+    {% endif %}
+    {% for message in history %}
+      {% if message.role == 'user' %}
+        <div class="flex justify-end">
+          <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs lg:max-w-md shadow">
+            {{ message.content }}
+          </div>
+        </div>
+      {% elif message.role == 'assistant' %}
+        <div class="flex justify-start">
+          <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs lg:max-w-md shadow">
+            {# Use safe filter or pre tags if response might contain HTML/code #}
+            <pre class="whitespace-pre-wrap font-sans">{{ message.content }}</pre>
+          </div>
+        </div>
+      {% elif message.role == 'error' %}
+        <div class="flex justify-start">
+          <div class="bg-red-100 text-red-700 p-3 rounded-lg max-w-xs lg:max-w-md shadow">
+            <strong>Error:</strong> {{ message.content }}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="p-4 border-t border-gray-300">
+    <form method="POST" action="{{ url_for('chat') }}" class="flex space-x-2">
+      <input type="text" name="message" placeholder="Type your question..." autocomplete="off" required
+             class="flex-grow px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <button type="submit"
+              class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+        Send
+      </button>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Watsonx RAG Chat{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      background-image: url('{{ url_for("static", filename="assets/watsonx-wallpaper.jpg") }}');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed; /* Keep wallpaper fixed during scroll */
+      display: flex;
+      flex-direction: column; /* Stack content vertically */
+    }
+    /* Ensure content block takes available space */
+    .content-wrapper {
+       flex-grow: 1;
+       display: flex;
+       align-items: center; /* Center content vertically */
+       justify-content: center; /* Center content horizontally */
+       width: 100%;
+       padding: 1rem; /* Add some padding */
+    }
+  </style>
+</head>
+<body class="bg-gray-900">  {# Default background if image fails #}
+  <div class="content-wrapper">
+    {% block content %}{% endblock %}
+  </div>
+  {# Optional: Add scripts here if needed globally #}
+  <script>
+      // Auto-scroll to bottom of chat window
+      function scrollToBottom() {
+          const chatbox = document.getElementById('chatbox');
+          if (chatbox) {
+              chatbox.scrollTop = chatbox.scrollHeight;
+          }
+      }
+      // Scroll on initial load
+      window.onload = scrollToBottom;
+      // If using HTMX or similar for partial updates, you might need
+      // to call scrollToBottom() after content is swapped.
+  </script>
+</body>
+</html>
