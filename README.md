@@ -1,6 +1,6 @@
 # Building a Watsonx.ai Chatbot RAG Server with MCP
 ![](assets/2025-04-21-09-12-03.png)
-In this tutorial, you will learn how to build a full-featured Retrieval-Augmented Generation (RAG) server using IBM Watsonx.ai, ChromaDB for vector indexing, and expose it via the Model Context Protocol (MCP) Python SDK. By the end, you’ll have a standalone server that processes PDF documents and a client to make queries against them, leveraging the power of large language models grounded in your specific data.
+In this tutorial, you will learn how to build a full-featured Retrieval-Augmented Generation (RAG) server using IBM Watsonx.ai, ChromaDB for vector indexing, and expose it via the Model Context Protocol (MCP) Python SDK. By the end, you’ll have a standalone server that processes PDF documents and a client to make queries against them, leveraging the power of large language models grounded in your specific data. At the end we shows how to integrate directly inside Claude Desktop.
 
 The [Model Context Protocol (MCP)](https://github.com/modelcontextprotocol) standardizes the interface between applications and LLMs. With MCP, you can separate the concerns of providing context, executing code, and managing user interactions. The MCP Python SDK implements the full MCP specification, allowing you to:
 
