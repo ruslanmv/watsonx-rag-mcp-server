@@ -1260,7 +1260,6 @@ Thanks to the **Meta Compute Protocol (MCP)**, you can!
 
 This guide walks you through configuring Claude Desktop to launch and communicate with your custom `server.py`.
 
----
 
 ## Prerequisites
 
@@ -1282,7 +1281,6 @@ This guide walks you through configuring Claude Desktop to launch and communica
    - `documents/` folder containing PDFs
    - `chroma_db_data/` folder (persistent vector database)
 
----
 
 ## Step 1 – Locate the Claude Desktop configuration file
 
@@ -1295,7 +1293,11 @@ This guide walks you through configuring Claude Desktop to launch and communica
 2. **Developer ▸ Edit Config**  
    Click **Developer** in the sidebar, then **Edit Config**.  
    Claude either opens the existing file or creates a new one and reveals it in your file system.
+
 ![](assets/2025-04-21-13-20-59.png)
+
+
+
 Typical locations:
 
 | OS      | Path |
@@ -1366,7 +1368,7 @@ for example in my case is
 
 > **Dependencies:** Claude Desktop runs the command directly. Make sure the chosen Python interpreter has all packages from `requirements.txt` available (globally or in the environment you specify).
 
----
+
 
 ## Step 3 – Restart Claude Desktop
 
@@ -1381,7 +1383,11 @@ Open the settings and enable the developer mode.
 2. Click it.  
 3. You should see **`rag_chatbot`** (or whatever name you gave) under **Custom Tools**.  
 4. Its tools (e.g. `chat_with_manual`) should appear beneath it.
+
+
 ![](assets/2025-04-21-13-45-44.png)
+
+
 If something is missing:
 
 - Re‑check the absolute path and JSON syntax.
