@@ -42,3 +42,7 @@ echo "Docker installation completed!"
 echo "You may need to log out and back in for group changes to take effect."
 echo "To verify Docker installation, run: docker --version"
 echo "To test Docker, run: docker run hello-world"
+
+#Add your user to the docker group (only works if Docker is running locally in WSL)
+#If you installed Docker directly in WSL (not recommended on WSL2), then you might just need permissions.
+#sudo usermod -aG docker $USER

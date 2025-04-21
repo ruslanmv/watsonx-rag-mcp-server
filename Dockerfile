@@ -29,8 +29,9 @@ COPY frontend.py .
 COPY server.py .
 COPY templates ./templates/
 COPY static ./static/
-COPY .env .             
+# COPY .env .              # <-- REMOVED this line: .env file is NOT copied into the image
 COPY documents ./documents/  
+
 # Create the directory for ChromaDB persistence within the image (optional, volume mount is better)
 # RUN mkdir ./chroma_db_data
 
@@ -44,3 +45,5 @@ CMD ["python", "frontend.py"]
 # --- Production Alternative CMD using Gunicorn ---
 # Ensure gunicorn is in requirements.txt if using this
 # CMD ["gunicorn", "--bind", "0.0.0.0:5001", "frontend:app"]
+# --- Alternative CMD using Waitress for production ---
+# Ensure waitress is in requirements.txt if using this
